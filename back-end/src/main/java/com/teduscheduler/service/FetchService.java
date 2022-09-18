@@ -1,11 +1,15 @@
 package com.teduscheduler.service;
+import com.sun.org.apache.xpath.internal.operations.Mult;
 import com.teduscheduler.config.AppConfig;
+import com.teduscheduler.controller.FetchController;
 import com.teduscheduler.model.*;
 import com.teduscheduler.repository.RoomRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.io.File;
@@ -17,6 +21,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;  
 import org.apache.poi.ss.usermodel.Workbook;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -48,6 +54,7 @@ public class FetchService {
 
     private List<Thread> threadList = new ArrayList<>();
 
+    private static final Logger logger = LoggerFactory.getLogger(FetchController.class);
 
     private static HashMap<String, String> semesterNameHash = new HashMap<String, String>(){{
         put("001", "Fall");
@@ -55,24 +62,11 @@ public class FetchService {
         put("003", "Summer");
     }};
 
-    public boolean fetchCoursesData() {
-        try{
-            Document doc = Jsoup.connect(appConfig.getOfferedUrl()).get();
-            Element semesterDiv = doc.selectFirst("#edit-semestr-all");
-            saveSemesters(semesterDiv);
-
-            List<Semester> semesterList = semesterService.findAll();
-            for (Semester semester : semesterList) {
-                try {
-                    readCourses(semester);
-                }
-                catch (FileNotFoundException ex) {
-                    System.out.println("Cannot find " + semester.getYear() + "_" + semester.getCode());
-                    continue;
-                }
-            }
+    public boolean fetchCourseData(MultipartFile file, Semester semester) {
+        try {
+            readCourses(file, semester);
             return true;
-        }catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
@@ -95,13 +89,11 @@ public class FetchService {
         }
     }
 
-    private void readCourses(Semester semester) throws IOException {
-        System.out.println("Reading " + semester.getYear() + "_" + semester.getCode());
-        FileInputStream file = new FileInputStream(new File(semester.getYear() + "_" + semester.getCode() + ".xls"));
+    private void readCourses(MultipartFile multipartFile, Semester semester) throws IOException {
         Workbook wb = null;
         try
         {
-            wb = new HSSFWorkbook(file);
+            wb = new HSSFWorkbook(multipartFile.getInputStream());
         }
         catch(IOException io)
         {
@@ -120,11 +112,10 @@ public class FetchService {
                 continue;
             }
             if (!courseCode.equals(sectionCode.split("_")[0])) {
-                System.out.println(courseCode + "!= " + sectionCode.split("_")[0]);
-                System.out.println("Passed" + sectionCode + " for semester " + semester.getYear() + "/" + semester.getCode());
+                logger.info(courseCode + "!= " + sectionCode.split("_")[0]);
                 continue;
             }
-            System.out.println("Processing " + sectionCode + " for semester " + semester.getYear() + "/" + semester.getCode());
+
             List<String> stringList = new ArrayList<String>(Arrays.asList(teachers.split(",")));
             ArrayList<Instructor> instructors = new ArrayList<>();
             for (String a : stringList) {
@@ -149,7 +140,6 @@ public class FetchService {
 
             courseService.save(course);
         }
-        System.out.println("Done " + semester.getYear() + "_" + semester.getCode());
     }
 
     public String ReadCellData(Sheet sheet, int vRow, int vColumn) {

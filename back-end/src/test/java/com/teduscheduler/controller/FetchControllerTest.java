@@ -61,7 +61,6 @@ public class FetchControllerTest {
         String secretKey = "secret-key-app";
 
         when(appConfig.getFetchSecretKey()).thenReturn("secret-key-app");
-        when(fetchService.fetchCoursesData()).thenReturn(true);
 
         this.mockMvc.perform(post("/api/fetch/data")
                 .content(secretKey))
@@ -73,7 +72,6 @@ public class FetchControllerTest {
         String secretKey = "secret-key-app";
 
         when(appConfig.getFetchSecretKey()).thenReturn("secret-key-app");
-        when(fetchService.fetchCoursesData()).thenReturn(false);
 
         this.mockMvc.perform(post("/api/fetch/data")
                 .content(secretKey))

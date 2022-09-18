@@ -1,0 +1,22 @@
+.fetch-container {
+  display: flex;
+  flex-direction: column;
+  .row {
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
+
+    .text {
+      width: 100px;
+    }
+
+    .input {
+      width: 300px;
+    }
+
+    .button {
+      width: 100px;
+      height: 50px;
+    }
+  }
+}

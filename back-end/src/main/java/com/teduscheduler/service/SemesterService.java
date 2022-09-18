@@ -18,6 +18,10 @@ public class SemesterService {
         return semesterRepository.findAllBy(Sort.by("year").descending().and(Sort.by("code").descending()));
     }
 
+    public Semester findSemesterByYearAndCode(String year, String code) {
+        return semesterRepository.findSemesterByYearAndCode(year, code);
+    }
+
     public Semester save(Semester semester){
         Semester dbSemester = semesterRepository.findSemesterByYearAndCode(semester.getYear(), semester.getCode());
 

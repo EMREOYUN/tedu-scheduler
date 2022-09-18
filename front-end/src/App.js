@@ -5,6 +5,8 @@ import React, {useEffect, useState} from "react";
 import Footer from "./components/Footer/Footer";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import {useLocalStorage} from "react-use";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Fetch from "./components/Fetch/Fetch";
 
 const App = () => {
     const [timetableData, setTimetableData] = useState({"timetable": [], "timetableIndex": 0, "originalTimetable": [], "selectedCoursesData": []})
@@ -55,41 +57,49 @@ const App = () => {
 
 
     return (
-        <>
-            <div className={"container"}>
-                <CourseTable
-                    {...{
-                        advancedFilter,
-                        updateAdvancedFilter,
-                        setIsLoading,
-                        timetableData,
-                        updateTimetableData,
-                        isTutorialOpen,
-                        setIsTutorialOpen
-                    }}
-                />
-                <Timetable
-                    {...{
-                        advancedFilter,
-                        updateAdvancedFilter,
-                        timetableData,
-                        updateTimetableData
-                    }}
-                />
-                <Footer {...{
-                    timetableData,
-                    updateTimetableData,
-                    setIsTutorialOpen
-                }}/>
-            </div>
-            <div id={"capture"}>
+        <Router>
+            <Routes>
+                <Route exact path={"/"} element={
+                    <>
+                        <div className={"container"}>
+                            <CourseTable
+                                {...{
+                                    advancedFilter,
+                                    updateAdvancedFilter,
+                                    setIsLoading,
+                                    timetableData,
+                                    updateTimetableData,
+                                    isTutorialOpen,
+                                    setIsTutorialOpen
+                                }}
+                            />
+                            <Timetable
+                                {...{
+                                    advancedFilter,
+                                    updateAdvancedFilter,
+                                    timetableData,
+                                    updateTimetableData
+                                }}
+                            />
+                            <Footer {...{
+                                timetableData,
+                                updateTimetableData,
+                                setIsTutorialOpen
+                            }}/>
+                        </div>
+                        <div id={"capture"}>
 
-            </div>
-            <LoadingScreen {...{
-                isLoading,
-                setIsLoading
-            }}/>
-        </>
+                        </div>
+                        <LoadingScreen {...{
+                            isLoading,
+                            setIsLoading
+                        }}/>
+                    </>
+                }>
+                </Route>
+                <Route exact path={"/fetch"} element={<Fetch />}/>
+            </Routes>
+        </Router>
     )
 }
 
