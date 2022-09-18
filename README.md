@@ -49,6 +49,7 @@ Before building the project, BACKEND_URL which is located in `/frontend/src/conf
 - `npm install -g serve`
 - `npm run build`
 <br>From now on, you can use `build` folder as your root if you are planning to use a hosting.
+<br>Warning: In order to use in hosting, please use `legacy` branch instead of `main`.
 
 ## Backend
 ### Docker
