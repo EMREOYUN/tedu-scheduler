@@ -97,7 +97,7 @@ const Footer = ({ timetableData, updateTimetableData, setIsTutorialOpen }) => {
                 </IconButton>
             </div>
         </div>
-    </div>))
+    </div>)
 }
 
 export default Footer
