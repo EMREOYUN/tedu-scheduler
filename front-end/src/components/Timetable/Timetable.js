@@ -78,7 +78,7 @@ const Timetable = ({
                 {matrix.map((row, rowIndex) =>
                     <div key={"time" + rowIndex} className={"timetable-time"}>
                         <div className={"timetable-time-text"}>
-                            {(startTime+rowIndex) + ":00 - " + (startTime+rowIndex) + ":50"}
+                            {(startTime+rowIndex) + ":00"}
                         </div>
                     </div>
                 )}
