@@ -1,6 +1,6 @@
 const init = () => [
     {
-        intro: 'Welcome to TEDU Scheduler, lets show you around.<br><br>This website is not affiliated with TEDU in any way.<br>It is a project by students for students.',
+        intro: 'Welcome to TEDU Scheduler, lets show you around.<br><br>This website is not affiliated with TEDU in any way.<br>It is a project by Berkay Özek & Emre Çelik for students.',
     },
     {
         element : document.querySelector(".semester-selector"),
