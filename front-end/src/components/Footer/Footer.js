@@ -44,14 +44,14 @@ const Footer = ({ timetableData, updateTimetableData, setIsTutorialOpen }) => {
         <div className={"left-footer"}>
             <div className={"github"}>
                 <IconButton className={"mui-button"}>
-                    <a href={"https://github.com/emreoyun"}>
+                    <a href={"https://github.com/emreoyun/tedu-scheduler"}>
                         <GitHub />
                     </a>
                 </IconButton>
             </div>
             <div className={"mail"}>
                 <IconButton className={"mui-button"}>
-                    <a href={"mailto:berkayozek@hotmail.com"}>
+                    <a href={"mailto:admin@emreoyun.tk"}>
                         <Email />
                     </a>
                 </IconButton>
@@ -86,7 +86,7 @@ const Footer = ({ timetableData, updateTimetableData, setIsTutorialOpen }) => {
                 Combinations
             </div>
             <div className={"text"}>
-                This website is not affiliated with TEDU in any way.<br />It is a project by students for students.
+                This website is not affiliated with TEDU in any way.<br />It is a project by <a href="https://www.linkedin.com/in/berkay-ozek/">Berkay Özek</a> & <a href="https://emreoyun.tk/">Emre Çelik</a> for students.
             </div>
 
         </div>
@@ -97,7 +97,7 @@ const Footer = ({ timetableData, updateTimetableData, setIsTutorialOpen }) => {
                 </IconButton>
             </div>
         </div>
-    </div>)
+    </div>))
 }
 
 export default Footer
