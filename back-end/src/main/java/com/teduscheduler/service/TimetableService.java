@@ -106,6 +106,8 @@ public class TimetableService {
             put("We", new ArrayList<>());
             put("Th", new ArrayList<>());
             put("Fr", new ArrayList<>());
+            put("Sat", new ArrayList<>());
+            put("Sun", new ArrayList<>());
         }};
 
         for (Section section : timetable.getSections()) {
