@@ -13,11 +13,11 @@ const Timetable = ({
     timetableData
     }) => {
 
-    const [matrix, setMatrix] = useState(Array.from({length: 13},()=> Array.from({length: 7}, () => null)));
+    const [matrix, setMatrix] = useState(Array.from({length: 14},()=> Array.from({length: 7}, () => null)));
 
     const updateMatrix = ( ) => {
         const {timetable, timetableIndex} = timetableData
-        let copy = Array.from({length: 13},()=> Array.from({length: 7}, () => null));
+        let copy = Array.from({length: 14},()=> Array.from({length: 7}, () => null));
         colorIndex = 0
 
         if (timetable.length > 0 && timetable[timetableIndex]) {

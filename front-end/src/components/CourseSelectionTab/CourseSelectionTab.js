@@ -87,8 +87,8 @@ const CourseSelectionTab = ({
             isLock : advancedFilter.isLock
         }
 
-        let copy = Array.from({length: 13},()=> Array.from({length: 7}, () => false))
-        copy[5][0] = !copy[5][0]
+        let copy = Array.from({length: 14},()=> Array.from({length: 7}, () => false))
+        copy[3][4] = !copy[3][4]
         updateAdvancedFilter("isLock", copy)
         updateAdvancedFilter("allowConflict", true)
         const tempSemester = semesters.find(semester => semester.semesterName === "Fall 2013-2014")
