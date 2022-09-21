@@ -5,7 +5,7 @@
     <h1>TEDU Scheduler</h1>
     <img src="/front-end/public/logo512.png" alt="Logo" width="80" height="80">
     <br>
-    <a href="https://emreoyun.tk/apps/teduscheduler">Scheduler Link(Not available right now)</a>
+    <a href="https://teduscheduler.tk">Scheduler Link</a>
 </div>
 
 A scheduler application that generates possible schedules for TED University students.
