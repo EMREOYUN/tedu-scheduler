@@ -172,7 +172,7 @@ $accents: (
         grid-area: time;
         display: grid;
         // 6 time intervals
-        grid-template-rows: repeat(13, 1fr);
+        grid-template-rows: repeat(14, 1fr);
         font-size: 14px;
         & > div{
             display: flex;
@@ -186,7 +186,7 @@ $accents: (
     .content{
         grid-area: content;
         display: grid;
-        grid-template-rows: repeat(13, 1fr);
+        grid-template-rows: repeat(14, 1fr);
         grid-template-columns: repeat(7, 1fr);
         & > div{
             border-left: solid 1px $porcelain;
