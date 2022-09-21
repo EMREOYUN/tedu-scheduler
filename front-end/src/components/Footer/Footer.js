@@ -86,7 +86,7 @@ const Footer = ({ timetableData, updateTimetableData, setIsTutorialOpen }) => {
                 Combinations
             </div>
             <div className={"text"}>
-                This website is not affiliated with TEDU in any way.<br />It is a project by students for students.
+                This website is not affiliated with TEDU in any way.<br />It is a project by <a href="linkedin.com/in/berkay-ozek/">Berkay Özek</a> & <a href="https://emreoyun.tk">Emre Çelik</a>" for students.
             </div>
 
         </div>
