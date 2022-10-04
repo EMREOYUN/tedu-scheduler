@@ -5,7 +5,9 @@
     <h1>TEDU Scheduler</h1>
     <img src="/front-end/public/logo512.png" alt="Logo" width="80" height="80">
     <br>
-    <a href="https://teduscheduler.tk">Scheduler Link</a>
+    <a href="https://teduscheduler.tk">Scheduler Link</a><br>
+    Currently, cannot be accessable outside of Türkiye.
+    <br><br>
 </div>
 
 A scheduler application that generates possible schedules for TED University students.
