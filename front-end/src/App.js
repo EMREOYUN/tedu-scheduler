@@ -57,49 +57,41 @@ const App = () => {
 
 
     return (
-        <Router>
-            <Routes>
-                <Route exact path={"/"} element={
-                    <>
-                        <div className={"container"}>
-                            <CourseTable
-                                {...{
-                                    advancedFilter,
-                                    updateAdvancedFilter,
-                                    setIsLoading,
-                                    timetableData,
-                                    updateTimetableData,
-                                    isTutorialOpen,
-                                    setIsTutorialOpen
-                                }}
-                            />
-                            <Timetable
-                                {...{
-                                    advancedFilter,
-                                    updateAdvancedFilter,
-                                    timetableData,
-                                    updateTimetableData
-                                }}
-                            />
-                            <Footer {...{
-                                timetableData,
-                                updateTimetableData,
-                                setIsTutorialOpen
-                            }}/>
-                        </div>
-                        <div id={"capture"}>
+        <>
+            <div className={"container"}>
+                <CourseTable
+                    {...{
+                        advancedFilter,
+                        updateAdvancedFilter,
+                        setIsLoading,
+                        timetableData,
+                        updateTimetableData,
+                        isTutorialOpen,
+                        setIsTutorialOpen
+                    }}
+                />
+                <Timetable
+                    {...{
+                        advancedFilter,
+                        updateAdvancedFilter,
+                        timetableData,
+                        updateTimetableData
+                    }}
+                />
+                <Footer {...{
+                    timetableData,
+                    updateTimetableData,
+                    setIsTutorialOpen
+                }}/>
+            </div>
+            <div id={"capture"}>
 
-                        </div>
-                        <LoadingScreen {...{
-                            isLoading,
-                            setIsLoading
-                        }}/>
-                    </>
-                }>
-                </Route>
-                <Route exact path={"/fetch"} element={<Fetch />}/>
-            </Routes>
-        </Router>
+            </div>
+            <LoadingScreen {...{
+                isLoading,
+                setIsLoading
+            }}/>
+        </>
     )
 }
 

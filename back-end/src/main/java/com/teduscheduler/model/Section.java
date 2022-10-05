@@ -89,7 +89,10 @@ public class Section {
     }
 
     public boolean equals(Section otherSection){
-        return sectionCode.equals(otherSection.getSectionCode()) && courseHours.equals(otherSection.getCourseHours())
-                && instructors.equals(otherSection.getInstructors()) && semester.equals(otherSection.getSemester());
+        return sectionCode.equals(otherSection.getSectionCode())
+                && courseHours.equals(otherSection.getCourseHours())
+                && room.equals(otherSection.getRoom())
+                && instructors.equals(otherSection.getInstructors())
+                && semester.equals(otherSection.getSemester());
     }
 }

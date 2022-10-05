@@ -21,6 +21,7 @@ public class SectionService {
                 return dbSection;
 
             dbSection.setCourseHours(section.getCourseHours());
+            dbSection.setRoom(section.getRoom());
             dbSection.setInstructors(section.getInstructors());
 
             return sectionRepository.save(dbSection);
