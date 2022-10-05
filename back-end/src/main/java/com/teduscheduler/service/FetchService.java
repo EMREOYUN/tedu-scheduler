@@ -111,8 +111,8 @@ public class FetchService {
                 logger.info(courseCode + " != " + sectionCode.split("_")[0]);
                 continue;
             }
-            if (!courseCode.matches("[A-Z]+\\s[0-9]+(-[A-Z])?_[0-9]+")){
-                logger.info(courseCode + " does not match with the requirement");
+            if (!sectionCode.matches("[A-Z]+\\s[0-9]{3}(-[A-Z])?_[0-9]{2}")){
+                logger.info(sectionCode + " does not match with the requirement \"CODE 000_00\" or \"CODE 000-X_00\"");
                 continue;
             }
             List<String> stringList = new ArrayList<String>(Arrays.asList(teachers.split(",")));
