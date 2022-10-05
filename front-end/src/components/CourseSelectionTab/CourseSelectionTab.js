@@ -91,7 +91,7 @@ const CourseSelectionTab = ({
         copy[3][4] = !copy[3][4]
         updateAdvancedFilter("isLock", copy)
         updateAdvancedFilter("allowConflict", true)
-        const tempSemester = semesters.find(semester => semester.semesterName === "Fall 2013-2014")
+        const tempSemester = semesters.find(semester => semester.semesterName === "Tutorial")
         setSemester(tempSemester)
     }
 
