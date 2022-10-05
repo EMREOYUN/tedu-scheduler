@@ -45,7 +45,7 @@ public class TimetableController {
 
         if (timetableResponse == null) {
             String errorMessage = "Something went wrong when generating timetable.";
-            logger.error(errorMessage);
+            logger.error("Timetable failed to generate! The request was " + timetableRequest.toString());
             return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
         }
 

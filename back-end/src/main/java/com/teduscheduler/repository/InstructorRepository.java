@@ -4,7 +4,6 @@ import com.teduscheduler.model.Instructor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
 import javax.persistence.Tuple;
 import java.util.List;
 

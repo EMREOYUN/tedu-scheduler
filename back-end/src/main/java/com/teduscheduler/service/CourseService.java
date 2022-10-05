@@ -1,19 +1,13 @@
 package com.teduscheduler.service;
 
 import com.teduscheduler.model.Course;
-import com.teduscheduler.model.Instructor;
-import com.teduscheduler.model.Section;
 import com.teduscheduler.model.Semester;
 import com.teduscheduler.repository.CourseRepository;
 import com.teduscheduler.repository.InstructorRepository;
 import com.teduscheduler.repository.SectionRepository;
 import com.teduscheduler.repository.SemesterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.Tuple;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

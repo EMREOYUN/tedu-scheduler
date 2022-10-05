@@ -1,6 +1,4 @@
 package com.teduscheduler.entity;
-
-import com.teduscheduler.model.Course;
 import com.teduscheduler.model.Semester;
 
 import java.util.List;

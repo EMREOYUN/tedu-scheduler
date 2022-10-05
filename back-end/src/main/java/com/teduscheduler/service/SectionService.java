@@ -1,8 +1,6 @@
 package com.teduscheduler.service;
 
 import com.teduscheduler.model.Section;
-import com.teduscheduler.repository.CourseHourRepository;
-import com.teduscheduler.repository.CourseRepository;
 import com.teduscheduler.repository.SectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

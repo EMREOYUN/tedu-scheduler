@@ -1,20 +1,13 @@
 package com.teduscheduler.service;
-import com.sun.org.apache.xpath.internal.operations.Mult;
+
 import com.teduscheduler.config.AppConfig;
 import com.teduscheduler.controller.FetchController;
 import com.teduscheduler.model.*;
-import com.teduscheduler.repository.RoomRepository;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.io.File;
-import java.io.FileInputStream;  
-import java.io.FileNotFoundException;  
 import java.io.IOException;    
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;  
 import org.apache.poi.ss.usermodel.Cell;  
@@ -22,7 +15,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;  
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -75,12 +67,12 @@ public class FetchService {
     private void saveSemesters(Element semesterDiv){
         for (Element semesterElement : semesterDiv.children()) {
             String parsed[] = semesterElement.val().split("/");
-
+        
             if (parsed.length > 1 ){
                 Semester semester = new Semester();
                 int parseIntYear = Integer.parseInt(parsed[0]);
                 String semesterName = String.format("%s %d-%d",semesterNameHash.get(parsed[1]), parseIntYear, parseIntYear + 1);
-
+    
                 semester.setYear(parsed[0]); // Year
                 semester.setCode(parsed[1]); // Code
                 semester.setSemesterName(semesterName); // Semester Name
@@ -112,10 +104,17 @@ public class FetchService {
                 continue;
             }
             if (!courseCode.equals(sectionCode.split("_")[0])) {
-                logger.info(courseCode + "!= " + sectionCode.split("_")[0]);
+                logger.info(courseCode + " != " + sectionCode.split("_")[0]);
                 continue;
             }
-
+            if (!courseCode.equals(sectionCode.split("_")[0])) {
+                logger.info(courseCode + " != " + sectionCode.split("_")[0]);
+                continue;
+            }
+            if (!courseCode.matches("[A-Z]+\\s[0-9]+(-[A-Z])?_[0-9]+")){
+                logger.info(courseCode + " does not match with the requirement");
+                continue;
+            }
             List<String> stringList = new ArrayList<String>(Arrays.asList(teachers.split(",")));
             ArrayList<Instructor> instructors = new ArrayList<>();
             for (String a : stringList) {

@@ -1,17 +1,13 @@
 package com.teduscheduler.scheduler;
 
 import com.teduscheduler.config.*;
-import com.teduscheduler.service.FetchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-
-import javax.annotation.PostConstruct;
 
 @Component
 public class Scheduler {

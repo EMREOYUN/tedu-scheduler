@@ -1,6 +1,5 @@
 package com.teduscheduler.service;
 
-import com.teduscheduler.model.Course;
 import com.teduscheduler.model.CourseHour;
 import com.teduscheduler.repository.CourseHourRepository;
 import org.springframework.beans.factory.annotation.Autowired;
