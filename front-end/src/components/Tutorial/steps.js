@@ -1,6 +1,6 @@
 const init = () => [
     {
-        intro: 'Welcome to TEDU Scheduler, lets show you around.<br><br>This website is not affiliated with TEDU in any way.<br>It is a project by <a href="linkedin.com/in/berkay-ozek/">Berkay Özek</a> & <a href="https://emreoyun.tk">Emre Çelik</a>" for students.',
+        intro: 'Welcome to TEDU Scheduler, lets show you around.<br><br>This website is not affiliated with TEDU in any way.<br>It is a project by <a href="https://linkedin.com/in/berkay-ozek/">Berkay Özek</a> & <a href="https://emreoyun.tk/">Emre Çelik</a> for students.',
     },
     {
         element : document.querySelector(".semester-selector"),
@@ -19,7 +19,7 @@ const init = () => [
     },
     {
         element: document.querySelector(".advanced-filter"),
-        intro: "Change your scheduler's options such as allow conflict and show only one/two day empty."
+        intro: "Change your scheduler's options such as allow conflict and show only one/two day empty.<br />May not work correctly due to weekends."
     },
     {
         element: document.querySelector(".timetable"),
