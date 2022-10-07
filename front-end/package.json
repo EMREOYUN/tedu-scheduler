@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "buildwin": "react-scripts build",
+    "builddebug": "react-scripts build",
     "build": "REACT_APP_PROD=1 react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

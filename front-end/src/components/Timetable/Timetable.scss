@@ -97,7 +97,7 @@ $accents: (
     grid-template-areas: ". week"
                          "time content";
     grid-template-columns: 120px;
-    grid-template-rows: 50px;
+    grid-template-rows: 30px;
     height: 100%;
     margin-left: 25px;
     background-color: white;
@@ -142,9 +142,6 @@ $accents: (
             }
         }
 
-        .combinations {
-        }
-
         .arrows {
             svg {
                 cursor: pointer;
@@ -157,7 +154,7 @@ $accents: (
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         text-transform: uppercase;
-        grid-template-rows: 60px;
+        grid-template-rows: 30px;
         font-size: 12px;
         & > div{
             display: flex;

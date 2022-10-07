@@ -28,6 +28,21 @@ const AdvancedCourseFilter = ({ advancedFilter, updateAdvancedFilter }) => {
         updateAdvancedFilter(flagType, !advancedFilter[flagType])
     }
 
+    const emptyDays = (count) => {
+        switch (count) {
+            case 1:
+                return "one day"
+            case 2:
+                return "two days"
+            case 3:
+                return "three days"
+            case 4:
+                return "four days"
+            default:
+                return `x days`
+        }
+    }
+
     return(
         <>
             <div className={"advanced-filter"}>
@@ -59,7 +74,7 @@ const AdvancedCourseFilter = ({ advancedFilter, updateAdvancedFilter }) => {
                         </div>
                         <div key={"emptyDay"} className={"filter"}>
                             <div className={"filter-name"}>
-                                Show at least {advancedFilter.emptyDayCount === 1 ? "one" : "two"} day empty
+                                Show at least {emptyDays(advancedFilter.emptyDayCount)} empty
                             </div>
                             <div className={"filter-buttons"}>
                                 <FormControl className={"empty-day-select"}>
@@ -71,6 +86,8 @@ const AdvancedCourseFilter = ({ advancedFilter, updateAdvancedFilter }) => {
                                     >
                                         <MenuItem value={1}>1</MenuItem>
                                         <MenuItem value={2}>2</MenuItem>
+                                        <MenuItem value={3}>3</MenuItem>
+                                        <MenuItem value={4}>4</MenuItem>
                                     </Select>
                                 </FormControl>
                                 <Switch

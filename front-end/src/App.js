@@ -5,8 +5,6 @@ import React, {useEffect, useState} from "react";
 import Footer from "./components/Footer/Footer";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import {useLocalStorage} from "react-use";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Fetch from "./components/Fetch/Fetch";
 
 const App = () => {
     const [timetableData, setTimetableData] = useState({"timetable": [], "timetableIndex": 0, "originalTimetable": [], "selectedCoursesData": []})

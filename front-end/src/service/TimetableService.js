@@ -1,5 +1,4 @@
 import api from "./index"
-const {BACKEND_URL} = process.env;
 
 export const GenerateTimetable = (selectedCourses, semester, filter) => {
 
