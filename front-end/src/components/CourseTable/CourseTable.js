@@ -10,7 +10,9 @@ const CourseTable = ({
                          timetableData,
                          updateTimetableData,
                          isTutorialOpen,
-                         setIsTutorialOpen
+                         setIsTutorialOpen,
+                         selectedSemester,
+                         setSelectedSemester
                      }) => {
 
     return (
@@ -23,7 +25,9 @@ const CourseTable = ({
                     timetableData,
                     updateTimetableData,
                     isTutorialOpen,
-                    setIsTutorialOpen
+                    setIsTutorialOpen,
+                    selectedSemester,
+                    setSelectedSemester
                 }}
             />
             <CourseFilter
@@ -31,7 +35,9 @@ const CourseTable = ({
                     advancedFilter,
                     updateAdvancedFilter,
                     timetableData,
-                    updateTimetableData
+                    updateTimetableData,
+                    selectedSemester,
+                    setSelectedSemester
                 }}
             />
         </div>

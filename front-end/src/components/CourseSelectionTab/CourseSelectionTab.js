@@ -13,12 +13,13 @@ const CourseSelectionTab = ({
                                 timetableData,
                                 updateTimetableData,
                                 isTutorialOpen,
-                                setIsTutorialOpen
+                                setIsTutorialOpen,
+                                selectedSemester,
+                                setSelectedSemester
                             }) => {
     const [selectedCourses, setSelectedCourses] = useState([])
     const [coursesJSON, setCoursesJSON] = useState([])
     const [semesters, setSemesters] = useState([])
-    const [selectedSemester, setSelectedSemester] = useState("")
 
     const tempSchedulerData = useRef()
     const tutorialTempCourseData = []

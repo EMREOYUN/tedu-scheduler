@@ -28,10 +28,19 @@ public class SemesterService {
                 return dbSemester;
 
             dbSemester.setSemesterName(semester.getSemesterName());
-
+            dbSemester.setLastUpdate(semester.getLastUpdate());
             return semesterRepository.save(dbSemester);
         }
 
         return semesterRepository.save(semester);
+    }
+    
+    public Long findLastUpdate(String year, String code){
+        Semester dbSemester = semesterRepository.findSemesterByYearAndCode(year, code);
+
+        if (dbSemester == null) {
+            return -4L;
+        }
+        return dbSemester.getLastUpdate();
     }
 }

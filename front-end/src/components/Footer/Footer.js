@@ -5,8 +5,12 @@ import {ReactComponent as RightArrow} from "../../images/right-arrow.svg"
 import {ReactComponent as LeftArrow} from "../../images/left-arrow.svg"
 import html2canvas from "html2canvas";
 import {IconButton} from "@material-ui/core";
+import { SemesterService } from "../../service";
+import { useState, useEffect } from "react";
 
-const Footer = ({ timetableData, updateTimetableData, setIsTutorialOpen }) => {
+
+const Footer = ({ timetableData, updateTimetableData, setIsTutorialOpen, selectedSemester }) => {
+    const [lastUpdate, setLastUpdate] = useState("")
     const captureElement = document.querySelector('#capture')
 
 
@@ -38,6 +42,17 @@ const Footer = ({ timetableData, updateTimetableData, setIsTutorialOpen }) => {
 
         captureElement.querySelectorAll('*').forEach( n => n.remove() );
     }
+
+    useEffect(() => {
+        if (selectedSemester) {
+            SemesterService.getLastUpdate(selectedSemester).then((response) => {
+                setLastUpdate(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+        }
+    }, [selectedSemester])
 
 
     return(<div className={"footer"}>
@@ -84,6 +99,9 @@ const Footer = ({ timetableData, updateTimetableData, setIsTutorialOpen }) => {
             </div>
             <div className={"text"}>
                 Combinations
+            </div>
+            <div className={"text"}>
+            { lastUpdate }
             </div>
             <div className={"text"}>
                 This website is not affiliated with TEDU in any way.<br />It is a project by <a href="https://linkedin.com/in/berkay-ozek/">Berkay Özek</a> & <a href="https://emreoyun.tk/">Emre Çelik</a> for students.

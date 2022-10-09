@@ -21,17 +21,17 @@ public class CourseController {
     @GetMapping("/get/{year}-{code}")
     public ResponseEntity<?> GetCourse(@PathVariable String year, @PathVariable String code){
         if (year.isEmpty() || code.isEmpty()) {
-            String errorMessage = "Year or Semester Code cannot be empty.";
-            logger.error(errorMessage);
-            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+            String infoMessage = "Year or Semester Code cannot be empty.";
+            logger.error(infoMessage);
+            return new ResponseEntity<>(infoMessage, HttpStatus.BAD_REQUEST);
         }
 
         List <String> courses = courseService.findCourseBySemesterAndYear(year, code);
 
         if (courses == null) {
-            String errorMessage = String.format("There is no data related to given %s (year) and %s (code)",year, code);
-            logger.error(errorMessage);
-            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+            String infoMessage = String.format("There is no data related to given %s (year) and %s (code)",year, code);
+            logger.error(infoMessage);
+            return new ResponseEntity<>(infoMessage, HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<>(courses, HttpStatus.OK);

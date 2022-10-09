@@ -87,6 +87,8 @@ public class FetchController {
             semester.setSemesterName(map.get("semesterName"));
             semester.setCode(map.get("code"));
             semester.setYear(map.get("year"));
+            long millis = new java.util.Date().getTime();
+            semester.setLastUpdate(millis);
         } catch (Exception e) {
             throw e;
         }

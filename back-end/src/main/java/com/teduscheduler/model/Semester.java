@@ -16,14 +16,16 @@ public class Semester {
     private String semesterName;
     private String year;
     private String code;
+    private Long lastUpdate;
 
     public Semester() { }
 
-    public Semester(int id, String semesterName, String year, String code) {
+    public Semester(int id, String semesterName, String year, String code, Long lastUpdate) {
         this.id = id;
         this.semesterName = semesterName;
         this.year = year;
         this.code = code;
+        this.lastUpdate = lastUpdate;
     }
 
     public int getId() {
@@ -58,9 +60,17 @@ public class Semester {
         this.code = code;
     }
 
+    public Long getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(Long lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
     public boolean equals(Semester otherSemester){
         return semesterName.equals(otherSemester.getSemesterName()) && year.equals(otherSemester.getYear())
-                && code.equals(otherSemester.getCode());
+                && code.equals(otherSemester.getCode()) && lastUpdate.equals(otherSemester.getLastUpdate());
     }
 
 }

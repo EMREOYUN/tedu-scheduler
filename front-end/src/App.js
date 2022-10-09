@@ -13,6 +13,7 @@ const App = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [isTutorialOpen, setIsTutorialOpen] = useLocalStorage( "isTutorialCompleted",false)
     const [cachedFilters, setCachedFilters] = useLocalStorage("advancedFilter", {})
+    const [selectedSemester, setSelectedSemester] = useState("")
 
     const updateAdvancedFilter = (filterKey, filterValue) => {
         setAdvancedFilter(prevState => ({
@@ -65,7 +66,9 @@ const App = () => {
                         timetableData,
                         updateTimetableData,
                         isTutorialOpen,
-                        setIsTutorialOpen
+                        setIsTutorialOpen,
+                        selectedSemester,
+                        setSelectedSemester
                     }}
                 />
                 <Timetable
@@ -79,7 +82,8 @@ const App = () => {
                 <Footer {...{
                     timetableData,
                     updateTimetableData,
-                    setIsTutorialOpen
+                    setIsTutorialOpen,
+                    selectedSemester
                 }}/>
             </div>
             <div id={"capture"}>
