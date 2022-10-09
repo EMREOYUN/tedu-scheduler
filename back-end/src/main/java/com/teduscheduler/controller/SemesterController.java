@@ -64,6 +64,11 @@ public class SemesterController {
             logger.error(infoMessage);
             return new ResponseEntity<>(infoMessage, HttpStatus.OK);
         }
+        else if (lastUpdate == 0){
+            String infoMessage = "Not added yet";
+            logger.error(infoMessage);
+            return new ResponseEntity<>(infoMessage, HttpStatus.OK);
+        }
         else {
             String season = "";
             switch (code) {
